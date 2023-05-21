@@ -8,14 +8,43 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var name: String = "Joe"
+    @State private var isOn: Bool = true
+    
     var body: some View {
-        VStack {
-            Image(systemName: "bird")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("This is a test of state!")
+        NavigationStack {
+            VStack {
+                Image(systemName: "bird")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                Text("This is a test of state!")
+                Text(name)
+                
+                Form {
+                    Section {
+                        TextField("Name", text: $name)
+                    } header: {
+                        Text("Enter your name")
+                    }
+                    Toggle(isOn: $isOn) {
+                        Text("Advanced")
+                    }
+                    Section {
+                        List {
+                            NavigationLink("Next Page with its own @State") {
+                                NextView()
+                            }
+                            NavigationLink("Next Page with a binding to this @State") {
+                                AnotherView(name: $name, isOn: $isOn)
+                            }
+                        }
+                    } header: {
+                        Text("Options")
+                    }
+                }
+                
+            }
         }
-        .padding()
     }
 }
 
