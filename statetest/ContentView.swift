@@ -36,8 +36,8 @@ class Pet: ObservableObject {
 }
 
 class Automobile: ObservableObject {
-    var name: String
-    var age: Int
+    @Published var name: String
+    @Published var age: Int
     
     static let Example: Automobile = Automobile(name: "Example Auto", age: 1)
 
@@ -79,7 +79,7 @@ struct ContentView: View {
 //    Should I be using a StateObject here?
     @ObservedObject var murphy: Pet = Pet(name: "Murphy", age: 12, city: "Windsor")
     
-    @StateObject var ford: Automobile = Automobile(name: "Ford", age: 4)
+    @StateObject var auto: Automobile = Automobile(name: "Ford", age: 4)
     
 //    Will be based into the Environment
     @StateObject var airplane: Airplane = Airplane("Concorde")
@@ -99,6 +99,7 @@ struct ContentView: View {
                     Text("\(Pet.Example.name) is a \(Pet.Example.age) \(Pet.Example.printCityStatus())")
                     Text("\(self.murphy.name) is \(self.murphy.age) \(self.murphy.printCityStatus())")
                     Text("Birth date is \(birthDate, formatter: dateFormatter)")
+                    Text("Auto \(auto.name)")
                     Text("Aircraft \(airplane.name)")
                 }
                 .padding(.leading)
@@ -145,7 +146,7 @@ struct ContentView: View {
                                 ObservingView(cat: murphy)
                             }
                             NavigationLink("Page watching @StateObject") {
-                                StateView(auto: ford)
+                                StateView(auto: auto)
                             }
                             NavigationLink("Page watching @EnvironmentObject") {
                                 EnvironmentView()

@@ -11,7 +11,12 @@ struct StateView: View {
     @ObservedObject var auto: Automobile
     
     var body: some View {
-        Text("\(auto.name) is \(auto.age)")
+        NavigationStack {
+            Form {
+                Text("\(auto.name) is \(auto.age)")
+                TextField("Auto Name", text: $auto.name)
+            }
+        }
     }
 }
 
