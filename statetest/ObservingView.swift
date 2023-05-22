@@ -11,12 +11,12 @@ struct ObservingView: View {
     @ObservedObject var cat: Pet
     
     var body: some View {
-        Text("\(cat.name) is \(cat.age)")
+        Text("\(cat.name) is \(cat.age) in \(cat.city)")
     }
 }
 
 struct ObservingView_Previews: PreviewProvider {
     static var previews: some View {
-        ObservingView(cat: Pet(name: "a cat", age: 1))
+        ObservingView(cat: Pet(name: "a cat", age: 1, city: "Healdsburg"))
     }
 }
