@@ -15,6 +15,8 @@
 		3AD793BD2A19E65700511A25 /* AnotherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD793BC2A19E65700511A25 /* AnotherView.swift */; };
 		3AD793BF2A1ADB4E00511A25 /* ObservingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD793BE2A1ADB4E00511A25 /* ObservingView.swift */; };
 		3AD793C12A1AFCB100511A25 /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD793C02A1AFCB100511A25 /* StateView.swift */; };
+		3AD793C32A1B442400511A25 /* EnvironmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD793C22A1B442400511A25 /* EnvironmentView.swift */; };
+		3AD793C52A1B474700511A25 /* EnvironmentNextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD793C42A1B474700511A25 /* EnvironmentNextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		3AD793BC2A19E65700511A25 /* AnotherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnotherView.swift; sourceTree = "<group>"; };
 		3AD793BE2A1ADB4E00511A25 /* ObservingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservingView.swift; sourceTree = "<group>"; };
 		3AD793C02A1AFCB100511A25 /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
+		3AD793C22A1B442400511A25 /* EnvironmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentView.swift; sourceTree = "<group>"; };
+		3AD793C42A1B474700511A25 /* EnvironmentNextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentNextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,8 @@
 				3AD793BC2A19E65700511A25 /* AnotherView.swift */,
 				3AD793BE2A1ADB4E00511A25 /* ObservingView.swift */,
 				3AD793C02A1AFCB100511A25 /* StateView.swift */,
+				3AD793C22A1B442400511A25 /* EnvironmentView.swift */,
+				3AD793C42A1B474700511A25 /* EnvironmentNextView.swift */,
 				3AD793B02A19E1C900511A25 /* Assets.xcassets */,
 				3AD793B22A19E1C900511A25 /* Preview Content */,
 			);
@@ -151,6 +157,8 @@
 			files = (
 				3AD793C12A1AFCB100511A25 /* StateView.swift in Sources */,
 				3AD793BD2A19E65700511A25 /* AnotherView.swift in Sources */,
+				3AD793C32A1B442400511A25 /* EnvironmentView.swift in Sources */,
+				3AD793C52A1B474700511A25 /* EnvironmentNextView.swift in Sources */,
 				3AD793AF2A19E1C800511A25 /* ContentView.swift in Sources */,
 				3AD793AD2A19E1C800511A25 /* statetestApp.swift in Sources */,
 				3AD793BF2A1ADB4E00511A25 /* ObservingView.swift in Sources */,

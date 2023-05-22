@@ -47,16 +47,27 @@ class Automobile: ObservableObject {
     }
 }
 
+class Airplane: ObservableObject {
+    @Published var name: String = "Concorde"
+    
+//    init() {
+//        self.name = "Airpalne"
+//    }
+}
 
 struct ContentView: View {
     @State private var name: String = "Joe"
     @State private var isOn: Bool = true
     @State private var birthDate = Date()
 
+//    Should I be using a StateObject here?
     @ObservedObject var murphy: Pet = Pet(name: "Murphy", age: 12, city: "Windsor")
     
     @StateObject var ford: Automobile = Automobile(name: "Ford", age: 4)
     
+//    Will be based into the Environment
+    @StateObject var airplane: Airplane = Airplane()
+
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -71,6 +82,7 @@ struct ContentView: View {
                     Text("\(Pet.Example.name) is a \(Pet.Example.age) \(Pet.Example.printCityStatus())")
                     Text("\(self.murphy.name) is \(self.murphy.age) \(self.murphy.printCityStatus())")
                     Text("Birth date is \(birthDate, formatter: dateFormatter)")
+                    Text("Aircraft \(airplane.name)")
                 }
                 .padding(.leading)
                 .border(Color(red: 0.95, green: 0.95, blue: 0.95))
@@ -81,11 +93,11 @@ struct ContentView: View {
                 Form {
                     Section {
                         TextField("Name", text: $name)
+                        Toggle(isOn: $isOn) {
+                            Text("Advanced")
+                        }
                     } header: {
                         Text("Enter your name")
-                    }
-                    Toggle(isOn: $isOn) {
-                        Text("Advanced")
                     }
                     Section {
                         TextField("Pet Name", text: $murphy.name)
@@ -97,10 +109,8 @@ struct ContentView: View {
                     
                     Section {
                         DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
-                            Text("Date")
+                            Text("Select a Date")
                         }
-                    } header: {
-                        Text("Select a date")
                     }
 //                    .labelsHidden()
 
@@ -117,6 +127,9 @@ struct ContentView: View {
                             }
                             NavigationLink("Page watching @StateObject") {
                                 StateView(auto: ford)
+                            }
+                            NavigationLink("Page watching @EnvironmentObject") {
+                                EnvironmentView()
                             }
                         }
                     } header: {
@@ -136,6 +149,7 @@ struct ContentView: View {
                 }
             }
         }
+        .environmentObject(airplane)
     }
 }
 
