@@ -50,8 +50,16 @@ class Automobile: ObservableObject {
 class Airplane: ObservableObject {
     @Published var name: String
     
-    init() {
-        self.name = "Concorde"
+    init(_ name: String) {
+        self.name = name
+    }
+}
+
+class Airplane2: ObservableObject {
+    @Published var name: String
+    
+    init(_ name: String) {
+        self.name = name
     }
 }
 
@@ -74,8 +82,9 @@ struct ContentView: View {
     @StateObject var ford: Automobile = Automobile(name: "Ford", age: 4)
     
 //    Will be based into the Environment
-    @StateObject var airplane: Airplane = Airplane()
-
+    @StateObject var airplane: Airplane = Airplane("Concorde")
+    @StateObject var airplane2: Airplane2 = Airplane2("747")
+    
     var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -160,6 +169,7 @@ struct ContentView: View {
             }
         }
         .environmentObject(airplane)
+        .environmentObject(airplane2)
     }
 }
 
