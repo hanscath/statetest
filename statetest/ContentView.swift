@@ -48,11 +48,19 @@ class Automobile: ObservableObject {
 }
 
 class Airplane: ObservableObject {
-    @Published var name: String = "Concorde"
+    @Published var name: String
     
-//    init() {
-//        self.name = "Airpalne"
-//    }
+    init() {
+        self.name = "Concorde"
+    }
+}
+
+struct ExtraView: View {
+    @EnvironmentObject var airplane: Airplane
+    
+    var body: some View {
+        Text(airplane.name)
+    }
 }
 
 struct ContentView: View {
@@ -106,6 +114,8 @@ struct ContentView: View {
                         
                         TextField("Pet City", text: $murphy.city)
                     }
+                    
+                    ExtraView()
                     
                     Section {
                         DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
