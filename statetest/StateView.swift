@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StateView: View {
-    @Binding var auto: Automobile
+    @ObservedObject var auto: Automobile
     
     var body: some View {
         Text("\(auto.name) is \(auto.age)")
@@ -17,6 +17,6 @@ struct StateView: View {
 
 struct StateView_Previews: PreviewProvider {
     static var previews: some View {
-        StateView(auto: .constant(Automobile(name: "example auto", age: 1)))
+        StateView(auto: Automobile(name: "example auto", age: 1))
     }
 }

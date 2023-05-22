@@ -67,10 +67,6 @@ struct ContentView: View {
         NavigationStack {
             VStack {
                 Group {
-                    Image(systemName: "bird")
-                        .imageScale(.large)
-                        .foregroundColor(.accentColor)
-                    Text("This is a test of state!")
                     Text(name)
                     Text("\(Pet.Example.name) is a \(Pet.Example.age) \(Pet.Example.printCityStatus())")
                     Text("\(self.murphy.name) is \(self.murphy.age) \(self.murphy.printCityStatus())")
@@ -108,7 +104,6 @@ struct ContentView: View {
                     }
 //                    .labelsHidden()
 
-                    
                     Section {
                         List {
                             NavigationLink("Page with its own @State") {
@@ -120,13 +115,24 @@ struct ContentView: View {
                             NavigationLink("Page watching @ObservedObject") {
                                 ObservingView(cat: murphy)
                             }
-//                            NavigationLink("Page watching @StateObject") {
-//                                StateView(cat: james)
-//                            }
+                            NavigationLink("Page watching @StateObject") {
+                                StateView(auto: ford)
+                            }
                         }
                     } header: {
                         Text("Options")
                     }
+                }
+            }
+//            This ends up hiding the actual Title, but retaining the text for the back button on subsequent pages.
+            .navigationBarTitle(Text("Test of State"), displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    HStack {
+                        Image(systemName: "bird")
+                        Text("Test of State")
+                    }
+                    .bold()
                 }
             }
         }
